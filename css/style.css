@@ -133,10 +133,6 @@ main {
     margin: auto;
     margin-bottom: 20px;
     border-radius: 999999px;
-    background-image: url("/dlemo-kun/image/logo-280px.webp");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
 }
 /* ############################################# */
 .class-article-section {
@@ -151,31 +147,26 @@ main {
     }
     h2, h3 {
         text-align: center;
+    }    
+    a:hover {
+        color: var(--color-3);
     }
 }
 .class-style-black {
     background-color: var(--color-1);
-}
-.class-style-white p {
     color: var(--color-2);
-}    
-.class-style-white a {
-    color: var(--color-3);
-}
-.class-style-white a:hover {
-    color: var(--color-2);
+    a {
+        text-decoration: underline;
+        color: var(--color-2);
+    }
 }
 .class-style-white {
     background-color: var(--color-2);
-}
-.class-style-white p {
     color: var(--color-1);
-}    
-.class-style-white a {
-    color: var(--color-3);
-}
-.class-style-white a:hover {
-    color: var(--color-1);
+    a {
+        text-decoration: underline;
+        color: var(--color-1);
+    }
 }
 .class-article-div {
     width: 100%;
@@ -235,8 +226,7 @@ footer {
 
 @media (max-height: 500px) {
     .class-logo-hero-img  {
-        width: 0px;
-        height: 0px;
+        display: none;
     }
 }
 @media (max-width: 750px) {
