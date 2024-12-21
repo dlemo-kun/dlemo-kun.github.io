@@ -155,27 +155,27 @@ main {
 }
 .class-style-black {
     background-color: var(--color-1);
-    p {
-        color: var(--color-2);
-    }    
-    a {
-        color: var(--color-3);
-    }
-    a:hover {
-        color: var(--color-2);
-    }
+}
+.class-style-white p {
+    color: var(--color-2);
+}    
+.class-style-white a {
+    color: var(--color-3);
+}
+.class-style-white a:hover {
+    color: var(--color-2);
 }
 .class-style-white {
     background-color: var(--color-2);
-    p {
-        color: var(--color-1);
-    }    
-    a {
-        color: var(--color-3);
-    }
-    a:hover {
-        color: var(--color-1);
-    }
+}
+.class-style-white p {
+    color: var(--color-1);
+}    
+.class-style-white a {
+    color: var(--color-3);
+}
+.class-style-white a:hover {
+    color: var(--color-1);
 }
 .class-article-div {
     width: 100%;
