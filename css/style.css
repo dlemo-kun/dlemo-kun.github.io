@@ -126,7 +126,7 @@ main {
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
     )
-    ,url("../image/hero-ja.webp");
+    ,url("/image/hero-ja.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -144,7 +144,7 @@ main {
     margin: auto;
     margin-bottom: 20px;
     border-radius: 999999px;
-    background-image: url("../image/logo-280px.webp");
+    background-image: url("/image/logo-280px.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
