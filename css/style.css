@@ -65,7 +65,7 @@ body {
     background-color: var(--color-2);
     display: flex;
     flex-direction: column;
-    min-height: 100dvh;
+    min-height: 100vh;
 }
 
 /* Encabesado */
@@ -109,7 +109,7 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 80dvh;
+    height: 80vh;
     background-image: linear-gradient(
         0deg,
         rgba(0, 0, 0, 0.5),
@@ -267,7 +267,7 @@ footer {
 
     header {
         position: fixed;
-        width: 100dvw;
+        width: 100vw;
     }
     .class-header-div {
         padding: 0 20px;
