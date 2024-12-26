@@ -291,6 +291,11 @@ footer {
 
     .class-pre-footer-cartas-div {
         display: flex;
+        /* display: grid; */
+        /* grid-template-columns: 3; */
+        /* grid-template-rows: repeat(3, 1fr); */
+        /* width: 100%; */
+        /* aspect-ratio: 1; */
     }
     .class-pre-footer-carta-div {
         width: 30%;
