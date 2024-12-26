@@ -1,3 +1,3 @@
 # dlemo-kun
 
-Version ≈ Opening 19
+Version ≈ Opening 20
