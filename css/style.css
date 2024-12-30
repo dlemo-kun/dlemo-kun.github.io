@@ -18,10 +18,10 @@
 
 html {scroll-behavior: smooth}
 
-h1 {font-size: 3.5em;}
-h2 {font-size: 2.25em;}
-#id-subtitle-hero-h2, h3 {font-size: 1.75em;}
-a, p {font-size: 1.25em;text-decoration: none;}
+h1 {font-size: 2.8em;}
+h2 {font-size: 1.8em;}
+#id-subtitle-hero-h2, h3 {font-size: 1.4em;}
+a, p {font-size: 1em;text-decoration: none;}
 p a {font-size: 1em;}
 
 a:hover {
@@ -48,7 +48,7 @@ form {
     text-align: center;
 }
 button {
-    font-size: 1.25em;
+    font-size: 1em;
     font-weight: bold;
     padding: 5px 20px;
     border-radius: 999999px;
@@ -75,7 +75,7 @@ header {
 }
 .class-header-logo-h3 {
     color: var(--color-3);
-    padding: 20px 10px;
+    padding: 16px 16px;
 }
 .class-header-div {
     max-width: 1400px;
@@ -85,7 +85,7 @@ header {
     align-items: center;
 }
 .class-header-div nav {
-    padding: 20px 10px;
+    padding: 16px 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -143,7 +143,7 @@ main {
     text-align: left;
     h1 {
         text-align: center;
-        font-size: 5.5em;
+        font-size: 4.4em;
     }
     h2, h3 {
         text-align: center;
@@ -172,7 +172,7 @@ main {
     width: 100%;
     max-width: 1400px;
     margin: auto;
-    padding: 200px 10px;
+    padding: 160px 10px;
 }
 /* ############################################# */
 .class-pre-footer-section {
@@ -185,7 +185,7 @@ main {
 .class-pre-footer-div {
     max-width: 1400px;
     margin: auto;
-    padding: 100px 10px;
+    padding: 80px 10px;
 }
 .class-pre-footer-carta-div {
     display: flex;
@@ -219,7 +219,7 @@ footer {
     flex-direction: column;
 }
 .class-footer-div nav {
-    padding: 20px 20px;
+    padding: 16px 16px;
     display: flex;
     flex-direction: column;
 }
@@ -240,7 +240,7 @@ footer {
     }
 }
 @media (min-width: 750px) {
-    #id-subtitle-hero-h2 {font-size: 2.25em}
+    #id-subtitle-hero-h2 {font-size: 1.8em}
 
     .hide-desktop {
         display: none;
@@ -286,7 +286,6 @@ footer {
         width: auto;
         max-width: 1400px;
         margin: auto;
-        padding: 200px 10px;
     }
 
     .class-pre-footer-cartas-div {
