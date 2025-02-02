@@ -13,6 +13,7 @@
     border: 0;
     border-radius: 0;
     font-family: 'Roboto', sans-serif;
+    
     transition: scale .05s ease-in 0s, color .05s ease-in 0s, background-color .05s ease-in 0s;
 }
 
@@ -115,7 +116,7 @@ main {
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
     )
-    ,url("/images/hero-ja.webp");
+    ,url("/assets/webp/hero-ja.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

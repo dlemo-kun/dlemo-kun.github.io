@@ -1,3 +1,3 @@
 # dlemo-kun
 
-Version ≈ Opening 22
+Version ≈ Opening 23
