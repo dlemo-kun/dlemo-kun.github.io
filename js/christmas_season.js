@@ -13,33 +13,65 @@ let messages = [
 
 document.addEventListener('DOMContentLoaded', function() {
   // Inserta las plantillas en los html
-  function insertFile(param1, param2) {
-    fetch(param1)
-    .then(respuesta => {
-      if (!respuesta.ok) {
-        throw new Error('No se pudo cargar el archivo: ' + respuesta.statusText);
-      }
-      return respuesta.text();
-    })
-    .then(texto => {
-      const etiquetaPersonalizada = document.querySelector(param2);
-      if (etiquetaPersonalizada) {
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = texto;
-        
-        while (tempDiv.firstChild) {
-          etiquetaPersonalizada.parentNode.insertBefore(tempDiv.firstChild, etiquetaPersonalizada);
+  function insertFile(url, selector) {
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Error al cargar ${url}: ${response.statusText}`);
         }
-        
-        etiquetaPersonalizada.parentNode.removeChild(etiquetaPersonalizada);
-      }
-    })
-    .catch(error => {
-      console.error('EROOOOOOOOOOOOR!!!!!!!!', error);
-    });
+        return response.text();
+      })
+      .then(html => {
+        const placeholder = document.querySelector(selector);
+        if (placeholder) {
+          // Crea un contenedor temporal y reemplaza el placeholder
+          const tempContainer = document.createElement('div');
+          tempContainer.innerHTML = html;
+  
+          // Inserta el contenido antes del placeholder
+          tempContainer.childNodes.forEach(node => {
+            placeholder.parentNode.insertBefore(node, placeholder);
+          });
+  
+          // Elimina el placeholder
+          placeholder.remove();
+        }
+      })
+      .catch(error => {
+        console.error("ERROR:", error);
+      });
   }
-  insertFile('/hdl/header.hdl', 'h_hdl');
-  insertFile('/hdl/footer.hdl', 'f_hdl');
+  
+  insertFile('/hdl/header.hdl', '[data-h-hdl]'); // Busca elementos con data-h-hdl
+  insertFile('/hdl/footer.hdl', '[data-f-hdl]'); // Busca elementos con data-f-hdl
+
+  // function insertFile(param1, param2) {
+  //   fetch(param1)
+  //   .then(respuesta => {
+  //     if (!respuesta.ok) {
+  //       throw new Error('No se pudo cargar el archivo: ' + respuesta.statusText);
+  //     }
+  //     return respuesta.text();
+  //   })
+  //   .then(texto => {
+  //     const etiquetaPersonalizada = document.querySelector(param2);
+  //     if (etiquetaPersonalizada) {
+  //       const tempDiv = document.createElement('div');
+  //       tempDiv.innerHTML = texto;
+        
+  //       while (tempDiv.firstChild) {
+  //         etiquetaPersonalizada.parentNode.insertBefore(tempDiv.firstChild, etiquetaPersonalizada);
+  //       }
+        
+  //       etiquetaPersonalizada.parentNode.removeChild(etiquetaPersonalizada);
+  //     }
+  //   })
+  //   .catch(error => {
+  //     console.error('EROOOOOOOOOOOOR!!!!!!!!', error);
+  //   });
+  // }
+  // insertFile('/hdl/header.hdl', 'h_hdl');
+  // insertFile('/hdl/footer.hdl', 'f_hdl');
   
   
   // Pone los colores de navidad
