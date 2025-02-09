@@ -1,0 +1,19 @@
+insertFile={{
+    <section class="class-article-section class-style-black">
+        <div class="class-article-div tag0002">
+            <h2>Febrero de 2025</h2> <br>
+            <p>
+                Utiliza los botones "Anterior" y "Siguiente" para navegar entre los meses disponibles. Esto te permitirá explorar posts de otros meses.
+            </p> <br>
+            <div class="tag0005">
+                <form method="get" action="#" class="tag0003">
+                    <button>Anterior</button>
+                </form>
+                <div class="tag0001"></div>
+                <form method="get" action="#" class="tag0004">
+                    <button>Siguiente</button>    
+                </form>
+            </div>
+        </div>
+    </section>
+}}

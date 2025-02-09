@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirección Automática</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('DOM completamente cargado.');
+
+            // Obtener la ruta actual del navegador
+            const currentPath = window.location.pathname;
+            const pathParts = currentPath.split('/').filter(part => part !== '');
+
+            // Validar que la URL tenga al menos 3 partes: blog/año/mes
+            let year, monthDir;
+            if (pathParts.length >= 3) {
+                // Extraer el año y el mes si están presentes
+                [_, year, monthDir] = pathParts;
+            } else {
+                console.error('La URL no tiene la estructura esperada (blog/año/mes). Buscando el año y mes más recientes...');
+                // Si no hay año y mes, buscar el año y mes más recientes disponibles
+                const latest = await findLatestAvailableYearAndMonth();
+                if (!latest) {
+                    console.error('No se encontró ningún archivo index.html en ninguna carpeta.');
+                    return;
+                }
+                year = latest.year;
+                monthDir = latest.folder;
+            }
+
+            // Convertir el año y mes actuales a números
+            let currentYear = parseInt(year);
+            let currentMonth = parseInt(monthDir.split('-')[0]);
+
+            // Función para obtener el mes anterior
+            function getPreviousMonth(currentMonth, currentYear) {
+                let month = currentMonth - 1;
+                let year = currentYear;
+                if (month < 1) {
+                    month = 12;
+                    year--;
+                }
+                return {
+                    year: year,
+                    month: month.toString().padStart(2, '0'),
+                    folder: `${month.toString().padStart(2, '0')}-${getMonthName(month)}`
+                };
+            }
+
+            // Función para obtener el nombre del mes
+            function getMonthName(monthNumber) {
+                const months = [
+                    'January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'
+                ];
+                return months[monthNumber - 1];
+            }
+
+            // Función para verificar si existe un archivo index.html en la carpeta dada
+            async function checkIndexFile(year, folder) {
+                const url = `/blog/${year}/${folder}/index.html`;
+                try {
+                    const response = await fetch(url, { method: 'HEAD' });
+                    return response.ok; // Retorna true si el archivo existe
+                } catch (error) {
+                    console.error(`Error al verificar la URL "${url}":`, error);
+                    return false; // Retorna false si hay un error
+                }
+            }
+
+            // Función para encontrar el año y mes más recientes con un archivo index.html
+            async function findLatestAvailableYearAndMonth() {
+                const years = [];
+                for (let year = new Date().getFullYear(); year >= 2000; year--) {
+                    const months = [];
+                    for (let month = 12; month >= 1; month--) {
+                        const folder = `${month.toString().padStart(2, '0')}-${getMonthName(month)}`;
+                        const exists = await checkIndexFile(year, folder);
+                        if (exists) {
+                            return { year, folder };
+                        }
+                    }
+                }
+                return null; // No se encontró ningún archivo
+            }
+
+            // Bucle para buscar el archivo index.html retrocediendo en los meses
+            while (true) {
+                const folder = `${currentMonth.toString().padStart(2, '0')}-${getMonthName(currentMonth)}`;
+                const exists = await checkIndexFile(currentYear, folder);
+
+                if (exists) {
+                    // Si se encuentra el archivo, redirigir a esa carpeta
+                    const redirectUrl = `/blog/${currentYear}/${folder}/`;
+                    console.log(`Redirigiendo a: ${redirectUrl}`);
+                    window.location.href = redirectUrl;
+                    break;
+                } else {
+                    // Si no se encuentra, retroceder al mes anterior
+                    const previous = getPreviousMonth(currentMonth, currentYear);
+                    currentYear = previous.year;
+                    currentMonth = parseInt(previous.month);
+
+                    // Detener el bucle si llegamos al límite (por ejemplo, año 2000)
+                    if (currentYear < 2000) {
+                        console.error('No se encontró ningún archivo index.html.');
+                        break;
+                    }
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <p>Buscando el archivo más reciente...</p>
+</body>
+</html>

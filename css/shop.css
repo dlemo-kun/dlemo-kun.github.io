@@ -2,21 +2,53 @@
     display: var(--open-shop-1);
 }
 .class-open-shop-2-section {
-    margin: 10px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 20px;
-    /* .class-article-div { */
-    /* } */
-    .class-article-div {
-        max-width: 1400px;
-        display: contents;
-    }
-    .class-article-div div {
-        width: 100%;
-        height: 220px;
-        padding: 10px;
-        border-radius: 25px;
-        background-color: var(--color-2);
-    }
+    display: var(--open-shop-2);
 }
+
+.class-shop-div {
+    max-width: 1400px;
+    margin: auto;
+    padding: 80px 10px;
+}
+
+
+.class-shop-cartas-div {
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+
+}
+.class-shop-carta-div {
+    /* width: 30%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 20px 10px;
+    margin: auto;
+    padding: 20px 10px;
+    background-color: var(--color-1);
+    color: var(--color-2);
+    border-radius: 25px;
+}
+
+.class-shop-carta-div h3 {
+    border-radius: 25px;
+    padding: 5px;
+    padding-bottom: 5px;
+}
+.class-shop-carta-div p {
+    padding: 20px 10px;
+    display: flex;
+}
+
+.class-shop-carta-div img {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de aspecto */
+    border-radius: 15px; /* Agrega bordes redondeados para mantener consistencia con el diseño */
+    margin-bottom: 20px; /* Espacio entre la imagen y el contenido inferior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra sutil para resaltar la imagen */
+}
+

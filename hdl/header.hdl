@@ -1,12 +1,25 @@
+insertFile={{
 <header>
     <div class="class-header-div">
         <h3 class="class-header-logo-h3">dlemo-kun</h3>
-        <nav class="class-header-nav">
-            <a href="/">Inicio</a>
-            <a href="/recommendations">Recomendaciones</a>
-            <a href="/shop">Tienda</a>
-            <a href="/resume">Currículum</a>
-            <a href="/portfolio">Portafolio</a>
+        <div class="hide-mobile" style="width: 60%;"></div>
+        <a class="hide-mobile" href="/">Inicio</a>
+        <a class="hide-mobile" href="/shop">Tienda</a>
+        <a class="hide-mobile" href="/resume">Currículum</a>
+        <input type="checkbox" id="id-menu-toggle" />
+        <label for="id-menu-toggle" class="class-menu-icon">&#9776;</label>
+        <nav class="class-menu">
+            <ul>
+                <li class="hide-desktop"><a href="/">Inicio</a></li>
+                <li><a href="/recommendations">Recomendaciones</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li class="hide-desktop"><a href="/shop">Tienda</a></li>
+                <li class="hide-desktop"><a href="/resume">Currículum</a></li>
+                <li><a href="/portfolio">Portafolio</a></li>
+                <li><a href="/LICENSE">LICENSE.md</a></li>
+                <li><a href="/README">README.md</a></li>
+            </ul>
         </nav>
     </div>
 </header>
+}}

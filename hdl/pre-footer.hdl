@@ -1,28 +1,126 @@
-<section id="pre-footer" class="class-pre-footer-section">
+insertFile={{
+<aside id="pre-footer" class="class-pre-footer-section">
     <div class="class-pre-footer-div">
         <h2>Contenido del Sitio</h2>
         <div class="class-pre-footer-cartas-div">
-            <div class="class-pre-footer-carta-div">
-                <h3>Tienda</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel esse deserunt illum, ipsam quos enim neque similique non aperiam, vero expedita praesentium, fugiat necessitatibus eveniet molestias totam iure dolor omnis.</p>
-                <form action="/shop">
-                    <button>Ir a</button>
-                </form>
-            </div>
-            <div class="class-pre-footer-carta-div">
-                <h3>Currículum</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi totam deleniti quam mollitia accusamus esse, iste numquam rerum veritatis impedit dolores eos, consequuntur hic alias unde recusandae sequi blanditiis. Officia.</p>
-                <form action="/resume">
-                    <button>Ir a</button>
-                </form>
-            </div>
-            <div class="class-pre-footer-carta-div">
-                <h3>Portafolio</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi totam deleniti quam mollitia accusamus esse, iste numquam rerum veritatis impedit dolores eos, consequuntur hic alias unde recusandae sequi blanditiis. Officia.</p>
-                <form action="/portfolio">
-                    <button>Ir a</button>
-                </form>
-            </div>
+            <div data-carta-hdl></div>
+            <div data-carta-hdl></div>
+            <div data-carta-hdl></div>
         </div>
     </div>
-</section>
+</aside>
+}}
+
+<!-- ######################################################## Links Internos ######################################################## -->
+
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>Blog</h3>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem veritatis rerum accusantium. A odit labore assumenda sunt illo fugit magnam ex eveniet harum velit, corrupti repellendus eum, adipisci id nam!
+        </p>
+        <form method="get" action="/Blog">
+            <button>Ir a</button>
+        </form>
+    </div>
+}}
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>LICENSE.md</h3>
+        <p>
+            ¿Te gustaría saber cómo puedes usar el contenido de esta página? Consulta la licencia para conocer los términos y condiciones de uso, distribución y atribución. Tu respeto a estas normas me ayuda a seguir creando contenido de calidad.
+        </p>
+        <form method="get" action="/LICENSE">
+            <button>Ir a</button>
+        </form>
+    </div>
+}}
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>Portafolio</h3>
+        <p>
+            Descubre mis trabajos más recientes, proyectos personales y colaboraciones en mi portafolio. Desde desarrollo de software hasta diseño de experiencias interactivas (Videojuegos), aquí encontrarás todo lo que he estado creando.
+        </p>
+        <form method="get" action="/portfolio">
+            <button>Ir a</button>
+        </form>
+    </div>
+}}
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>README.md</h3>
+        <p>
+            ¿Quieres saber más sobre este proyecto? Consulta README.md para obtener información detallada ¡Tu interés me ayuda a seguir creando contenido de calidad!
+        </p>
+        <form method="get" action="/README">
+            <button>Ir a</button>
+        </form>
+    </div>
+}}
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>Recomendaciones</h3>
+        <p>
+            Explora una colección seleccionada de recomendaciones sobre diferentes formatos de entretenimiento, como web novels, light novels, anime, manga, caricaturas y juegos de estrategia y cartas. Este sitio es una excelente fuente para descubrir nuevas experiencias basadas en mis preferencias.
+        </p>
+        <form method="get" action="/recommendations">
+            <button>Ir a</button>
+        </form>
+    </div>
+}}
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>Currículum</h3>
+        <p>
+            ¿Quieres conocer más sobre mi experiencia, habilidades y proyectos? Consulta mi currículum para obtener detalles sobre mi trayectoria profesional, educación y logros.
+        </p>
+        <form method="get" action="/resume">
+            <button>Ir a</button>
+        </form>
+    </div>
+}}
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>Tienda</h3>
+        <p>Aquí es donde podrás comprar y adquirir manualmente artículos físicos y obtener digitalmente artículos gratuitos.</p>
+        <form method="get" action="/shop">
+            <button>Ir a</button>
+        </form>
+    </div>
+}}
+
+<!-- ######################################################## Links Externos ######################################################## -->
+
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>Explora mi Twitter</h3>
+        <p>
+            Mantente al día con mis últimos proyectos, ideas y publicaciones siguiéndome en mi Twitter. ¡No te pierdas ninguna actualización!
+        </p>
+        <form method="get" action="https://x.com/dlemo_kun?s=09l" target="_blank">
+            <button>Ir a Twitter</button>
+        </form>
+    </div>
+}}
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>Explora mi GitHub</h3>
+        <p>
+            ¿Te interesa ver lo que he estado creando? Visita mi perfil de GitHub para explorar mis proyectos de código abierto, contribuciones y experimentos con tecnologías como Python, Godot y más. ¡Tu feedback es bienvenido!
+        </p>
+        <form method="get" action="https://github.com/dlemo-kun" target="_blank">
+            <button>Ir a GitHub</button>
+        </form>
+    </div>
+}}
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>Explora mi LinkedIn</h3>
+        <p>
+            Mantente al día con mis últimos proyectos, ideas y publicaciones siguiéndome en mi LinkedIn. ¡No te pierdas ninguna actualización!
+        </p>
+        <form method="get" action="https://www.linkedin.com/in/diego-alejandro-lemos-g%C3%B3mez-a5226134b?" target="_blank">
+            <button>Ir a LinkedIn</button>
+        </form>
+    </div>
+}}

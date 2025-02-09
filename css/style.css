@@ -2,8 +2,10 @@
     --color-1: #4d5155;
     --color-2: #dcdfe2;
     --color-3: #ec9b03;
+    --color-4: #09c009;
+    --color-5: #ec0303;
     --open-shop-1: flex;
-    --open-shop-2: none;
+    --open-shop-2: flex;
 }
 
 * {
@@ -62,6 +64,16 @@ button {
     }
 }
 
+.span-hashtags {
+    display: inline-block; /* Para que se comporte como un botón */
+    font-size: 1em;
+    font-weight: bold;
+    padding: 5px 20px;
+    border-radius: 999999px; /* Bordes redondeados como tus botones */
+    background-color: var(--color-4); /* Color de fondo del botón */
+    color: var(--color-2); /* Color del texto */
+}
+
 body {
     background-color: var(--color-2);
     display: flex;
@@ -73,27 +85,24 @@ body {
 header {
     background-color: var(--color-2);
     color: var(--color-1);
+    border-bottom: 1px solid var(--color-1);
 }
 .class-header-logo-h3 {
     color: var(--color-3);
-    padding: 16px 16px;
 }
-.class-header-div {
-    max-width: 1400px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
 .class-header-div nav {
     padding: 16px 16px;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
-nav a {
+nav ul li a {
     color: var(--color-1);
+}
+nav ul li a:hover {
+    color: var(--color-3);
 }
 
 
@@ -164,6 +173,10 @@ main {
 .class-style-white {
     background-color: var(--color-2);
     color: var(--color-1);
+    button:hover {
+        background-color: var(--color-1);
+        color: var(--color-2);
+    }
     a {
         text-decoration: underline;
         color: var(--color-1);
@@ -208,10 +221,19 @@ main {
     display: none;
 }
 
+.class-pre-footer-carta-div img {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de aspecto */
+    border-radius: 15px; /* Agrega bordes redondeados para mantener consistencia con el diseño */
+    margin-bottom: 20px; /* Espacio entre la imagen y el contenido inferior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra sutil para resaltar la imagen */
+}
+
 /* Pie de pagina */
 footer {
     background-color: var(--color-2);
     color: var(--color-1);
+    border-top: 1px solid var(--color-1);
 }
 .class-footer-div {
     max-width: 1400px;
@@ -225,12 +247,91 @@ footer {
     flex-direction: column;
 }
 
+/* Estilos generales */
+.class-header-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: var(--color-2);
+    color: var(--color-1);
+}
+
+.class-menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+}
+
+#id-menu-toggle {
+    display: none;
+}
+
+.class-menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header div a {color: var(--color-1); &:hover {color: var(--color-3);}}
+
+.class-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.class-menu ul li {
+    margin-left: 20px;
+}
+
+.class-menu ul li a {
+    color: var(--color-1);
+    text-decoration: none;
+}
+
+
+.class-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: var(--color-1);
+    flex-direction: column;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 25px;
+    border: 1px solid var(--color-2);
+}
+
+.class-menu ul {
+    flex-direction: column;
+}
+
+.class-menu ul li {
+    margin: 10px 0;
+}
+
+.class-menu ul li a {
+    color: var(--color-2);
+    &:hover {
+        scale: 1.15;
+        color: var(--color-3);
+    }
+}
+
+#id-menu-toggle:checked ~ .class-menu {
+    display: flex;
+}
+
+
+
 @media (max-height: 500px) {
     .class-logo-hero-img  {
         display: none;
     }
 }
-@media (max-width: 750px) {
+@media (max-width: 1100px) {
     .ul-list p::before {
         content: "  - ";
     }
@@ -240,9 +341,13 @@ footer {
         top: -3.14em;
     }
 }
-@media (min-width: 750px) {
+@media (min-width: 1100px) {
     #id-subtitle-hero-h2 {font-size: 1.8em}
-
+    
+    .class-menu-icon {
+        padding: 16px;
+        scale: 1.5;
+    }
     .hide-desktop {
         display: none;
         position: absolute;
@@ -268,11 +373,23 @@ footer {
 
     header {
         position: fixed;
+        top: 0;
+        z-index: 1000;
         width: 100vw;
+        height: 65px;
     }
     .class-header-div {
+        height: 64px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        max-width: 1400px;
+        margin: auto;
+        display: flex;
         padding: 0 20px;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
     }
     .class-header-div nav {
@@ -282,6 +399,14 @@ footer {
     .class-header-div nav a {
         padding: 0 10px;
     }
+    .class-menu {
+        /* position: relative; */
+        right: 64px;
+    }
+    main {
+        flex: 1;
+        overflow-y: auto;
+    }
 
     .class-article-div {
         width: auto;
@@ -289,16 +414,40 @@ footer {
         margin: auto;
     }
 
+    footer {
+        position: fixed;
+        bottom: 0;
+        z-index: 1000;
+        width: 100vw;
+    }
+
+    .class-footer-div {
+        padding: 0 20px;
+    }
+    .class-footer-div nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .class-footer-div li {
+        display: inline;
+    }
+    .class-footer-div nav a {
+        padding: 0 10px;
+    }
+    .class-header-logo-h3 {
+        padding: 16px;
+    }
+}
+@media (min-width: 720px) {
     .class-pre-footer-cartas-div {
-        display: flex;
-        /* display: grid; */
-        /* grid-template-columns: 3; */
-        /* grid-template-rows: repeat(3, 1fr); */
-        /* width: 100%; */
-        /* aspect-ratio: 1; */
+        /* display: flex; */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+
     }
     .class-pre-footer-carta-div {
-        width: 30%;
+        /* width: 30%; */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -318,19 +467,5 @@ footer {
     }
     .class-pre-footer-carta-div p {
         display: flex;
-    }
-
-    .class-footer-div {
-        padding: 0 20px;
-    }
-    .class-footer-div nav {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .class-footer-div li {
-        display: inline;
-    }
-    .class-footer-div nav a {
-        padding: 0 10px;
     }
 }
