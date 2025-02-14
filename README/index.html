@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>README.md // dlemo-kun</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/libs/prism-1.29.0/themes/dlemo-dark.css">
   <script type="module" src="/js/script.js"></script>
+  <script type="module" src="/libs/prism-1.29.0/prism.js"></script>
+  <script type="module" src="/libs/prism-1.29.0/components/prism-markdown.min.js"></script>
   <link rel="shortcut icon" href="/assets/webp/logo_dlemo-kun.webp" type="image/webp">
   <meta name="title" content="README.md // dlemo-kun">
   <meta name="keywords" content="README.md de dlemo-kun, dlemo-kun, README.md">
@@ -17,8 +20,30 @@
 </head>
 <body>
   <header data-h-hdl></header>
-  <main>    
+  <main>
+    <section id="README" class="class-article-section class-style-black">
+      <div class="class-article-div">
+        <h2>README.md</h2>
+        <pre><code id="readme" class="language-markdown">Cargando readme...</code><br><br><form method="get" action="https://github.com/dlemo-kun/dlemo-kun.github.io/blob/main/README.md"><button>Ir a GitHub</button></form></pre>
+      </div>
+    </section>
+
     <aside data-pre-f-hdl></aside>
+    <script>
+      async function loadReadme() {
+          try {
+              const response = await fetch('/README.md');
+              if (!response.ok) {
+                  throw new Error(`Error al cargar el archivo: ${response.status} ${response.statusText}`);
+              }
+              const readmeText = await response.text();
+              document.getElementById('readme').textContent = readmeText;
+          } catch (error) {
+              document.getElementById('readme').textContent = `Error al cargar la README: ${error.message}`;
+          }
+      }
+      loadReadme();
+  </script>
   </main>
   <footer data-f-hdl></footer>
 </body>
