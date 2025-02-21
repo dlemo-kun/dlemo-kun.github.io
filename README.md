@@ -1,6 +1,6 @@
 # **dlemo-kun**
 
-**Versión ≈ Opening 27**
+**Versión ≈ Opening 27.1**
 
 ¡Bienvenido al repositorio oficial de mi sitio web personal! Aquí encontrarás información sobre el proyecto, las páginas disponibles y cómo navegar por el contenido.
 
