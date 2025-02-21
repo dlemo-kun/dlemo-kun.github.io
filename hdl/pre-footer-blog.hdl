@@ -1,0 +1,45 @@
+insertFile={{
+<aside id="pre-footer" class="class-pre-footer-section">
+    <div class="class-pre-footer-div">
+        <h2>Contenido del Sitio</h2>
+        <div class="class-pre-footer-cartas-div">
+            <div data-carta-blog-hdl></div>
+            <div data-carta-blog-hdl></div>
+            <div data-carta-blog-hdl></div>
+            <div data-carta-hdl></div>
+            <div data-carta-hdl></div>
+            <div data-carta-hdl></div>
+        </div>
+    </div>
+</aside>
+}}
+
+<!-- ######################################################## Links Internos ######################################################## -->
+
+<!-- Blog -->
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>Blog</h3>
+        <p>
+            Decidí crear una sección de blog en mi web, manteniendo la estructura para coherencia visual. Me costó integrarlo en el menú principal, debatiendo entre reemplazar un enlace o crear un desplegable. Opté por un botón de compartir en redes sociales en lugar de comentarios. Mi mayor desafío es la falta de temas interesantes, por lo que pido sugerencias. Reflexiono sobre estos retos y comparto anécdotas del proceso de escritura.
+        </p>
+        <form method="get" action="/Blog/2025/02-February/">
+            <button>Ir a</button>
+        </form>
+    </div>
+}}
+
+<!-- ######################################################## Links Externos ######################################################## -->
+
+<!-- Twitter -->
+insertRandomFile##################={{ 
+    <div class="class-pre-footer-carta-div">
+        <h3>Explora mi Twitter</h3>
+        <p>
+            Mantente al día con mis últimos proyectos, ideas y publicaciones siguiéndome en mi Twitter. ¡No te pierdas ninguna actualización!
+        </p>
+        <form method="get" action="https://x.com/dlemo_kun?s=09l" target="_blank">
+            <button>Ir a Twitter</button>
+        </form>
+    </div>
+}}

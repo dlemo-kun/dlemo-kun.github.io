@@ -89,36 +89,49 @@ document.addEventListener('DOMContentLoaded', function() {
     if (maxReplacements === 0) return;
 
     fetch(url)
-      .then(response => {
-        if (!response.ok) throw new Error(`Error al cargar ${url}`);
-        return response.text();
-      })
-      .then(fileContent => {
-        const allContents = extractAllContents(fileContent, "insertRandomFile");
-        if (allContents.length === 0) return;
+        .then(response => {
+            if (!response.ok) throw new Error(`Error al cargar ${url}`);
+            return response.text();
+        })
+        .then(fileContent => {
+            const allContents = extractAllContents(fileContent, "insertRandomFile");
+            if (allContents.length === 0) return;
 
-        const placeholders = document.querySelectorAll(selector);
-        const replacements = Math.min(maxReplacements, placeholders.length);
+            const placeholders = document.querySelectorAll(selector);
+            const replacements = Math.min(maxReplacements, placeholders.length);
 
-        if (placeholders.length < maxReplacements) {
-          console.warn(`[${url}] Elementos encontrados: ${placeholders.length}/${maxReplacements}`);
-        }
+            if (placeholders.length < maxReplacements) {
+                console.warn(`[${url}] Elementos encontrados: ${placeholders.length}/${maxReplacements}`);
+            }
 
-        Array.from(placeholders).slice(0, maxReplacements).forEach(placeholder => {
-          const randomContent = allContents[Math.floor(Math.random() * allContents.length)];
-          const temp = document.createElement('div');
-          temp.innerHTML = randomContent;
-          placeholder.replaceWith(...temp.childNodes);
-        });
-      })
-      .catch(error => console.error("ERROR:", error));
-  }
+            // Registro de contenidos ya utilizados
+            const usedContents = new Set();
+
+            Array.from(placeholders).slice(0, maxReplacements).forEach(placeholder => {
+                let availableContents = allContents.filter(content => !usedContents.has(content));
+
+                if (availableContents.length === 0) {
+                  const temp = document.createElement('div');
+                  temp.innerHTML = "<!--  -->";
+                  placeholder.replaceWith(...temp.childNodes);
+                }
+
+                const randomContent = availableContents[Math.floor(Math.random() * availableContents.length)];
+                usedContents.add(randomContent); // Marcar como usado
+
+                const temp = document.createElement('div');
+                temp.innerHTML = randomContent;
+                placeholder.replaceWith(...temp.childNodes);
+            });
+        })
+        .catch(error => console.error("ERROR:", error));
+}
 
   // Header
   insertFile('/hdl/header.hdl', '[data-h-hdl]');
-  // Blog
-  insertFile('/hdl/blog-top.hdl', '[data-b-top-hdl]');
-  insertFile('/hdl/blog-bottom.hdl', '[data-b-bottom-hdl]');
+  // Pre-Footer Blog
+  insertFile('/hdl/pre-footer-blog.hdl', '[data-pre-f-blog-hdl]');
+  insertRandomFile('/hdl/pre-footer-blog.hdl', '[data-carta-blog-hdl]', 3);
   // Pre-Footer Standar
   insertFile('/hdl/pre-footer.hdl', '[data-pre-f-hdl]');
   insertRandomFile('/hdl/pre-footer.hdl', '[data-carta-hdl]', 3);

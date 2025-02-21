@@ -13,17 +13,19 @@ insertFile={{
 
 <!-- ######################################################## Links Internos ######################################################## -->
 
+<!-- Blog -->
 insertRandomFile={{
     <div class="class-pre-footer-carta-div">
         <h3>Blog</h3>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem veritatis rerum accusantium. A odit labore assumenda sunt illo fugit magnam ex eveniet harum velit, corrupti repellendus eum, adipisci id nam!
+            En mi blog comparto artículos sobre desarrollo de software, diseño de videojuegos, tecnología y otros temas que me apasionan. Encuentra tutoriales, reflexiones y experiencias que espero sean útiles para tu aprendizaje o proyectos personales. (Este texto fue generado por ChatGPT)
         </p>
         <form method="get" action="/Blog">
             <button>Ir a</button>
         </form>
     </div>
 }}
+<!-- LICENSE.md -->
 insertRandomFile={{
     <div class="class-pre-footer-carta-div">
         <h3>LICENSE.md</h3>
@@ -35,6 +37,7 @@ insertRandomFile={{
         </form>
     </div>
 }}
+<!-- Portafolio -->
 insertRandomFile={{
     <div class="class-pre-footer-carta-div">
         <h3>Portafolio</h3>
@@ -46,6 +49,7 @@ insertRandomFile={{
         </form>
     </div>
 }}
+<!-- README.md -->
 insertRandomFile={{
     <div class="class-pre-footer-carta-div">
         <h3>README.md</h3>
@@ -57,6 +61,7 @@ insertRandomFile={{
         </form>
     </div>
 }}
+<!-- Recomendaciones -->
 insertRandomFile={{
     <div class="class-pre-footer-carta-div">
         <h3>Recomendaciones</h3>
@@ -68,6 +73,7 @@ insertRandomFile={{
         </form>
     </div>
 }}
+<!-- Currículum -->
 insertRandomFile={{
     <div class="class-pre-footer-carta-div">
         <h3>Currículum</h3>
@@ -79,6 +85,7 @@ insertRandomFile={{
         </form>
     </div>
 }}
+<!-- Tienda -->
 insertRandomFile={{
     <div class="class-pre-footer-carta-div">
         <h3>Tienda</h3>
@@ -91,6 +98,7 @@ insertRandomFile={{
 
 <!-- ######################################################## Links Externos ######################################################## -->
 
+<!-- Twitter -->
 insertRandomFile={{
     <div class="class-pre-footer-carta-div">
         <h3>Explora mi Twitter</h3>
@@ -102,17 +110,19 @@ insertRandomFile={{
         </form>
     </div>
 }}
+<!-- GitHub -->
 insertRandomFile={{
     <div class="class-pre-footer-carta-div">
         <h3>Explora mi GitHub</h3>
         <p>
-            ¿Te interesa ver lo que he estado creando? Visita mi perfil de GitHub para explorar mis proyectos de código abierto, contribuciones y experimentos con tecnologías como Python, Godot y más. ¡Tu feedback es bienvenido!
+            ¿Te interesa ver lo que he estado creando? Visita mi perfil de GitHub para explorar mis proyectos de código abierto, contribuciones y experimentos con tecnologías como Python, Godot y más. ¡Tu feedback es bienvenido! (Prometo no bloquearte si criticas mi código... ¡al menos no inmediatamente! xd)
         </p>
         <form method="get" action="https://github.com/dlemo-kun" target="_blank">
             <button>Ir a GitHub</button>
         </form>
     </div>
 }}
+<!-- LinkedIn -->
 insertRandomFile={{
     <div class="class-pre-footer-carta-div">
         <h3>Explora mi LinkedIn</h3>
