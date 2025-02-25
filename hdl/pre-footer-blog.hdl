@@ -21,9 +21,35 @@ insertRandomFile={{
     <div class="class-pre-footer-carta-div">
         <h3>Blog</h3>
         <p>
-            Decidí crear una sección de blog en mi web, manteniendo la estructura para coherencia visual. Me costó integrarlo en el menú principal, debatiendo entre reemplazar un enlace o crear un desplegable. Opté por un botón de compartir en redes sociales en lugar de comentarios. Mi mayor desafío es la falta de temas interesantes, por lo que pido sugerencias. Reflexiono sobre estos retos y comparto anécdotas del proceso de escritura.
+            Si estás leyendo esto es porque finalmente me decidí a hacer una sección para un blog. Como eso todavía no ha pasado para mí, me es extraño hablar en pasado, así que les pido que mientras vayan leyendo mi texto en futuro, lo vayan formateando mentalmente a pasado. (...)
         </p>
         <form method="get" action="/Blog/2025/02-February/">
+            <button>Ir a</button>
+        </form>
+    </div>
+}}
+
+<!-- ¿Puedes aprender a programar en una semana? -->
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>¿Puedes aprender a programar en una semana?</h3>
+        <p>
+            (...) sentado en mi aula, cuando de repente llegó una amiga de 12º grado con otra amiga suya, también de 12º grado, a pedirme que le enseñara a programar en una semana para hacer una prueba de programación. (...)
+        </p>
+        <form method="get" action="/Blog/puedes_aprender_a_programar_en_una_semana/">
+            <button>Ir a</button>
+        </form>
+    </div>
+}}
+
+<!-- ディエゴ・アレハンドロ・レモス・ゴメス -->
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>ディエゴ・アレハンドロ・レモス・ゴメス</h3>
+        <p>
+            La compañera que se sienta al lado mío en la escuela se compró una Death Note, y yo quería que escribiera mi nombre, pero en español es muy aburrido, así que me puse a traducir mi nombre al japonés. (...)
+        </p>
+        <form method="get" action="/blog/%E3%83%87%E3%82%A3%E3%82%A8%E3%82%B4%E3%83%BB%E3%82%A2%E3%83%AC%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AD%E3%83%BB%E3%83%AC%E3%83%A2%E3%82%B9%E3%83%BB%E3%82%B4%E3%83%A1%E3%82%B9/">
             <button>Ir a</button>
         </form>
     </div>

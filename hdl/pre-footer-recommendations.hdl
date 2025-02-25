@@ -1,0 +1,58 @@
+insertFile={{
+<aside id="pre-footer" class="class-pre-footer-section">
+    <div class="class-pre-footer-div">
+        <h2>Contenido del Sitio</h2>
+        <div class="class-pre-footer-cartas-div">
+            <div data-carta-recommendations-hdl></div>
+            <div data-carta-recommendations-hdl></div>
+            <div data-carta-recommendations-hdl></div>
+            <div data-carta-hdl></div>
+            <div data-carta-hdl></div>
+            <div data-carta-hdl></div>
+        </div>
+    </div>
+</aside>
+}}
+
+<!-- ######################################################## Links Internos ######################################################## -->
+
+<!-- Isekai Nonbiri Nouka -->
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>Isekai Nonbiri Nouka</h3>
+        <p>
+            Analizar la obra literaria Isekai Nonbiri Nouka, en específico su noveno volumen. Kinosuke Naito es un japonés del que no se tiene mucha información. Empezó a escribir Isekai Nonbiri Nouka en 2016. (...)
+        </p>
+        <form method="get" action="/recommendations/web_novel/farming_life_in_another_world/#02/24/2025">
+            <button>Ir a</button>
+        </form>
+    </div>
+}}
+
+<!-- Farming Life in Another World -->
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>Farming Life in Another World</h3>
+        <p>
+            (...) Farming Life in Another World (Isekai Nonbiri Nouka) es la única novela web que he leído, ¡y me encantó! Es una maravilla, un deleite en todo sentido. (...)
+        </p>
+        <form method="get" action="/recommendations/web_novel/farming_life_in_another_world/#12/27/2024">
+            <button>Ir a</button>
+        </form>
+    </div>
+}}
+
+<!-- ######################################################## Links Externos ######################################################## -->
+
+<!-- Twitter -->
+insertRandomFile##################={{ 
+    <div class="class-pre-footer-carta-div">
+        <h3>Explora mi Twitter</h3>
+        <p>
+            Mantente al día con mis últimos proyectos, ideas y publicaciones siguiéndome en mi Twitter. ¡No te pierdas ninguna actualización!
+        </p>
+        <form method="get" action="https://x.com/dlemo_kun?s=09l" target="_blank">
+            <button>Ir a Twitter</button>
+        </form>
+    </div>
+}}

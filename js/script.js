@@ -1,12 +1,37 @@
 const currentYear = new Date().getFullYear();
-const startDate = new Date(`December 15, ${currentYear}`);
-const endDate = new Date(`December 26, ${currentYear}`);
+// January February June December
+// const startDateMerryChristmas = new Date(`January 15, ${currentYear}`);
+// const startDateHappyBirthdayNotch = new Date(`June 1, ${currentYear}`);
+// const endDateHappyBirthdayNotch = new Date(`June 2, ${currentYear}`);
+const startDateHappyBirthdayNotch = new Date(`February 22, ${currentYear}`);
+const endDateHappyBirthdayNotch = new Date(`February 23, ${currentYear}`);
+const startDateHappyBirthdayDlemo_kun = new Date(`December 10, ${currentYear}`);
+const endDateHappyBirthdayDlemo_kun = new Date(`December 11, ${currentYear}`);
+const startDateMerryChristmas = new Date(`December 24, ${currentYear}`);
+const endDateMerryChristmas = new Date(`January 1, ${currentYear}`);
 const currentDate = new Date(); // eg Wed Dec 11 2024 07:31:41 GMT-0500 (hora estándar oriental)
-let messages = [
-  'We wish you a Merry Christmas',
+
+let messagesHappyBirthdayNotch = [
+  '¡Feliz cumpleaños, Notch!',
+  'Happy Birthday, Notch!'
+]
+let messagesHappyBirthdayDlemo_kun = [
+  '¡Feliz cumpleaños, dlemo-kun!',
+  '¡Feliz cumpleaños, Diego!',
+  'Happy Birthday, dlemo-kun!',
+  'Happy Birthday, Diego!'
+]
+let messagesMerryChristmas = [
+  'Feliz Navidad a todos',
+  'Feliz Navidad a todos y año nuevo tambien',
+  'Les deseamos una feliz Navidad',
+  'Les deseamos una feliz Navidad y un próspero Año Nuevo',
+  'Feliz Navidad',
+  'Feliz Navidad, próspero año y felicidad',
+  'Quiero desearte una feliz navidad',
+  'Quiero desearte una Feliz Navidad desde el fondo de mi corazón',
   'We wish you a Merry Christmas',
   'We wish you a Merry Christmas and a Happy New Year',
-  'I wanna wish you a Merry Christmas',
   'I wanna wish you a Merry Christmas',
   'I wanna wish you a Merry Christmas from the bottom of my heart'
 ]
@@ -132,20 +157,43 @@ document.addEventListener('DOMContentLoaded', function() {
   // Pre-Footer Blog
   insertFile('/hdl/pre-footer-blog.hdl', '[data-pre-f-blog-hdl]');
   insertRandomFile('/hdl/pre-footer-blog.hdl', '[data-carta-blog-hdl]', 3);
+  // Pre-Footer Recommendations
+  insertFile('/hdl/pre-footer-recommendations.hdl', '[data-pre-f-recommendations-hdl]');
+  insertRandomFile('/hdl/pre-footer-recommendations.hdl', '[data-carta-recommendations-hdl]', 3);
   // Pre-Footer Standar
   insertFile('/hdl/pre-footer.hdl', '[data-pre-f-hdl]');
   insertRandomFile('/hdl/pre-footer.hdl', '[data-carta-hdl]', 3);
   // Footer
   insertFile('/hdl/footer.hdl', '[data-f-hdl]');
   
-  // Pone los colores de navidad
-  if (currentDate >= startDate && currentDate <= endDate) {
+  // Pone el texto del cumpleaños de Notch
+  if (currentDate > startDateHappyBirthdayNotch && currentDate < endDateHappyBirthdayNotch) {
+    const subtitleElement = document.getElementById('id-subtitle-hero-h2');
+    if (subtitleElement) {
+      subtitleElement.textContent = messagesHappyBirthdayNotch[Math.floor(Math.random() * messagesHappyBirthdayNotch.length)]; // Subtitulo del hero
+      subtitleElement.style.color = "#ffff55" // Subtitulo del hero
+    } else {
+      console.error('IDが "id-subtitle-hero-h2" の要素がDOMに見つかりませんでした。');
+    }
+  }
+  // Pone el texto de mi cumpleaños
+  if (currentDate > startDateHappyBirthdayDlemo_kun && currentDate < endDateHappyBirthdayDlemo_kun) {
+    const subtitleElement = document.getElementById('id-subtitle-hero-h2');
+    if (subtitleElement) {
+      subtitleElement.textContent = messagesHappyBirthdayDlemo_kun[Math.floor(Math.random() * messagesHappyBirthdayDlemo_kun.length)]; // Subtitulo del hero
+      subtitleElement.style.color = "var(--color-3)" // Subtitulo del hero
+    } else {
+      console.error('IDが "id-subtitle-hero-h2" の要素がDOMに見つかりませんでした。');
+    }
+  }
+  // Pone los colores y texto de navidad
+  if (currentDate > startDateMerryChristmas && currentDate < endDateMerryChristmas) {
     document.documentElement.style.setProperty('--color-1', '#554d4d'); // Rojo apagado
     document.documentElement.style.setProperty('--color-2', '#d6c5c5'); // Blanco rosado
     document.documentElement.style.setProperty('--color-3', '#c0392b'); // Rojo oscuro
     const subtitleElement = document.getElementById('id-subtitle-hero-h2');
     if (subtitleElement) {
-      subtitleElement.textContent = messages[Math.floor(Math.random() * messages.length)]; // Subtitulo del hero
+      subtitleElement.textContent = messagesMerryChristmas[Math.floor(Math.random() * messagesMerryChristmas.length)]; // Subtitulo del hero
     } else {
       console.error('IDが "id-subtitle-hero-h2" の要素がDOMに見つかりませんでした。');
     }
