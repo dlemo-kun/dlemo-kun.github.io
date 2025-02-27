@@ -223,7 +223,7 @@ main {
 
 .class-pre-footer-carta-div img {
     max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
-    height: auto; /* Mantiene la proporción de aspecto */
+    height: auto;
     border-radius: 15px; /* Agrega bordes redondeados para mantener consistencia con el diseño */
     margin-bottom: 20px; /* Espacio entre la imagen y el contenido inferior */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra sutil para resaltar la imagen */
@@ -447,7 +447,6 @@ header div a {color: var(--color-1); &:hover {color: var(--color-3);}}
 
     }
     .class-pre-footer-carta-div {
-        /* width: 30%; */
         display: flex;
         flex-direction: column;
         align-items: center;

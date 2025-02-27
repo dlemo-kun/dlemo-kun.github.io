@@ -1,4 +1,4 @@
-let open_shop = false
+let open_shop = true
 
 if (open_shop === true) {
     document.documentElement.style.setProperty('--open-shop-1', 'none');

@@ -23,7 +23,7 @@ insertRandomFile={{
         <p>
             Si estás leyendo esto es porque finalmente me decidí a hacer una sección para un blog. Como eso todavía no ha pasado para mí, me es extraño hablar en pasado, así que les pido que mientras vayan leyendo mi texto en futuro, lo vayan formateando mentalmente a pasado. (...)
         </p>
-        <form method="get" action="/Blog/2025/02-February/">
+        <form method="get" action="/blog/2025/02-February/">
             <button>Ir a</button>
         </form>
     </div>
@@ -36,7 +36,7 @@ insertRandomFile={{
         <p>
             (...) sentado en mi aula, cuando de repente llegó una amiga de 12º grado con otra amiga suya, también de 12º grado, a pedirme que le enseñara a programar en una semana para hacer una prueba de programación. (...)
         </p>
-        <form method="get" action="/Blog/puedes_aprender_a_programar_en_una_semana/">
+        <form method="get" action="/blog/puedes_aprender_a_programar_en_una_semana/">
             <button>Ir a</button>
         </form>
     </div>

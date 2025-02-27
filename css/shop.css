@@ -52,3 +52,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra sutil para resaltar la imagen */
 }
 
+@media (min-width: 720px) {
+    .class-shop-carta-div img {
+        max-height: 320px;
+    }
+}
