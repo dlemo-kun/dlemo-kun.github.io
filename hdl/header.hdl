@@ -1,7 +1,33 @@
 insertFile={{
 <header>
     <div class="class-header-div">
+        <div style="display: flex; align-items: center;">
+        <svg
+            width="48px"
+            height="48px"
+            viewBox="0 0 1024 1024"
+            version="1.1"
+            id="svg2372"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:svg="http://www.w3.org/2000/svg">
+           <defs
+              id="defs2369" />
+           <g
+              id="layer1"
+              transform="matrix(1.1509219,0,0,1.1509217,404.69244,337.98405)">
+             <path
+                style="display:inline;fill:var(--color-1);fill-opacity:1;stroke:var(--color-1);stroke-width:5.29201;stroke-opacity:1"
+                d="M 248.08589,-229.93134 C 224.89442,-62.417617 190.4407,223.95449 -140.25928,292.42479 L 93.224346,536.60338 C 366.98718,246.56967 376.47678,-2.3945078 248.08589,-229.93134 Z"
+                id="path2302" />
+             <path
+                style="fill:var(--color-3);fill-opacity:1;stroke:var(--color-3);stroke-width:5.29201;stroke-opacity:1"
+                d="M -61.613565,-229.92611 C -38.422096,-62.412386 -3.9683716,223.95973 326.73161,292.43003 L 93.247984,536.60861 C -180.51485,246.57491 -190.00445,-2.3892762 -61.613565,-229.92611 Z"
+                id="path300"
+                transform="translate(9.8200308e-6)" />
+           </g>
+        </svg>
         <h3 class="class-header-logo-h3">dlemo-kun</h3>
+        </div>
         <div class="hide-mobile" style="width: 60%;"></div>
         <a class="hide-mobile" href="/">Inicio</a>
         <a class="hide-mobile" href="/shop">Tienda</a>
