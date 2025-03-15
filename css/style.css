@@ -73,6 +73,15 @@ button, input{
     }
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
 .span-hashtags {
     display: inline-block; /* Para que se comporte como un botón */
     font-size: 1em;
@@ -176,6 +185,13 @@ main {
 .class-style-black {
     background-color: var(--color-1);
     color: var(--color-2);
+    th, td {
+        border: 1px solid var(--color-2);
+    }
+    .class-select-td {
+        background-color: var(--color-2);
+        color: var(--color-1);
+    }
     a {
         text-decoration: underline;
         color: var(--color-2);
@@ -185,6 +201,14 @@ main {
     background-color: var(--color-2);
     color: var(--color-1);
     button:hover, input:hover {
+        background-color: var(--color-1);
+        color: var(--color-2);
+    }
+    th, td {
+        border: 1px solid var(--color-1);
+    }
+    .class-select-td {
+        /* background-color: var(--color-3); */
         background-color: var(--color-1);
         color: var(--color-2);
     }
@@ -476,4 +500,69 @@ header div a {color: var(--color-1); &:hover {color: var(--color-3);}}
     .class-pre-footer-carta-div p {
         display: flex;
     }
+    .class-carta-div img {
+        max-height: 320px;
+    }
 }
+
+/* ############### */
+.tag0002 {padding: 122px 10px 40px 10px;}
+.tag0002 input {width: 100%;}
+@media (min-width: 1100px) {
+    .tag0002 {padding: 120px 10px 60px 10px;}
+}
+/* ############### */
+
+/* ############### */
+.class-open-1-section {
+    display: var(--open-shop-1);
+}
+.class-open-2-section {
+    display: var(--open-shop-2);
+}
+
+.class-div {
+    max-width: 1400px;
+    margin: auto;
+    padding: 80px 10px;
+}
+
+
+.class-cartas-div {
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+
+}
+.class-carta-div {
+    /* width: 30%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 20px 10px;
+    margin: auto;
+    padding: 20px 10px;
+    border-radius: 25px;
+}
+
+.class-carta-div h3 {
+    border-radius: 25px;
+    padding: 5px;
+    padding-bottom: 5px;
+}
+.class-carta-div p {
+    padding: 20px 10px;
+    display: flex;
+}
+
+.class-carta-div img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* ############### */

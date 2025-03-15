@@ -1,3 +1,5 @@
+# Este codigo no lo hice yo
+
 import pyperclip
 import os
 

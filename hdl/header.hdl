@@ -37,13 +37,14 @@ insertFile={{
         <nav class="class-menu">
             <ul>
                 <li class="hide-desktop"><a href="/">Inicio</a></li>
-                <li><a href="/recommendations">Recomendaciones</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li class="hide-desktop"><a href="/shop">Tienda</a></li>
-                <li class="hide-desktop"><a href="/resume">Currículum</a></li>
-                <li><a href="/portfolio">Portafolio</a></li>
-                <li><a href="/LICENSE">LICENSE.md</a></li>
-                <li><a href="/README">README.md</a></li>
+                <li><a href="/index/">Índice</a></li>
+                <li><a href="/recommendations/">Recomendaciones</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li class="hide-desktop"><a href="/shop/">Tienda</a></li>
+                <li class="hide-desktop"><a href="/resume/">Currículum</a></li>
+                <li><a href="/portfolio/">Portafolio</a></li>
+                <li><a href="/LICENSE/">LICENSE.md</a></li>
+                <li><a href="/README/">README.md</a></li>
             </ul>
         </nav>
     </div>

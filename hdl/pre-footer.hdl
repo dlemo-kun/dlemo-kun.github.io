@@ -25,6 +25,30 @@ insertRandomFile={{
         </form>
     </div>
 }}
+<!-- Índice -->
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>Índice</h3>
+        <p>
+            El Índice es tu punto de partida para explorar todo el contenido disponible en esta página. Aquí encontrarás un resumen organizado de las secciones más importantes.
+        </p>
+        <form method="get" action="/index/">
+            <button>Ir a</button>
+        </form>
+    </div>
+}}
+<!-- Días de Inparu (インパルの日) -->
+insertRandomFile={{
+    <div class="class-pre-footer-carta-div">
+        <h3>Días de Inparu (インパルの日)</h3>
+        <p>
+            
+        </p>
+        <form method="get" action="/inparu_no_hi/">
+            <button>Ir a</button>
+        </form>
+    </div>
+}}
 <!-- LICENSE.md -->
 insertRandomFile={{
     <div class="class-pre-footer-carta-div">
