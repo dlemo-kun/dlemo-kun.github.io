@@ -1,201 +1,82 @@
-const currentYear = new Date().getFullYear();
-// January February June December
-// const startDateMerryChristmas = new Date(`January 15, ${currentYear}`);
-// const startDateHappyBirthdayNotch = new Date(`June 1, ${currentYear}`);
-// const endDateHappyBirthdayNotch = new Date(`June 2, ${currentYear}`);
-const startDateHappyBirthdayNotch = new Date(`February 22, ${currentYear}`);
-const endDateHappyBirthdayNotch = new Date(`February 23, ${currentYear}`);
-const startDateHappyBirthdayDlemo_kun = new Date(`December 10, ${currentYear}`);
-const endDateHappyBirthdayDlemo_kun = new Date(`December 11, ${currentYear}`);
-const startDateMerryChristmas = new Date(`December 24, ${currentYear}`);
-const endDateMerryChristmas = new Date(`January 1, ${currentYear}`);
-const currentDate = new Date(); // eg Wed Dec 11 2024 07:31:41 GMT-0500 (hora estándar oriental)
-
-let messagesHappyBirthdayNotch = [
-  '¡Feliz cumpleaños, Notch!',
-  'Happy Birthday, Notch!'
-]
-let messagesHappyBirthdayDlemo_kun = [
-  '¡Feliz cumpleaños, dlemo-kun!',
-  '¡Feliz cumpleaños, Diego!',
-  'Happy Birthday, dlemo-kun!',
-  'Happy Birthday, Diego!'
-]
-let messagesMerryChristmas = [
-  'Feliz Navidad a todos',
-  'Feliz Navidad a todos y año nuevo tambien',
-  'Les deseamos una feliz Navidad',
-  'Les deseamos una feliz Navidad y un próspero Año Nuevo',
-  'Feliz Navidad',
-  'Feliz Navidad, próspero año y felicidad',
-  'Quiero desearte una feliz navidad',
-  'Quiero desearte una Feliz Navidad desde el fondo de mi corazón',
-  'We wish you a Merry Christmas',
-  'We wish you a Merry Christmas and a Happy New Year',
-  'I wanna wish you a Merry Christmas',
-  'I wanna wish you a Merry Christmas from the bottom of my heart'
-]
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Busca datos dentro de los hdl 1.2
-  function extractContent(fileContent, marker) {
-    const startMarker = `${marker}={{`;
-    const endMarker = '}}';
-    
-    const startIndex = fileContent.indexOf(startMarker);
-    const endIndex = fileContent.indexOf(endMarker, startIndex);
-    
-    if (startIndex !== -1 && endIndex !== -1 && endIndex > startIndex) {
-      const content = fileContent.substring(startIndex + startMarker.length, endIndex).trim();
-      return content;
-    } else {
-      console.error(`No se encontró el contenido entre ${startMarker} y ${endMarker}.`);
-      return null;
-    }
-  }
-  function extractAllContents(fileContent, marker) {
-    const startMarker = `${marker}={{`;
-    const endMarker = '}}';
-    const contents = [];
-    let startIndex = 0;
-
-    while (true) {
-      const blockStart = fileContent.indexOf(startMarker, startIndex);
-      if (blockStart === -1) break;
-
-      const blockEnd = fileContent.indexOf(endMarker, blockStart);
-      if (blockEnd === -1) break;
-
-      const content = fileContent.substring(
-        blockStart + startMarker.length,
-        blockEnd
-      ).trim();
-
-      contents.push(content);
-      startIndex = blockEnd + endMarker.length;
-    }
-
-    return contents;
-  }
-
-  // Inserta las plantillas en los html
-  function insertFile(url, selector, insertFile = "insertFile", maxReplacements = 1) {
-    maxReplacements = Math.max(0, Math.min(maxReplacements, 64));  // Límite de 64
-    if (maxReplacements === 0) return;
-
-    fetch(url)
-      .then(response => {
-        if (!response.ok) throw new Error(`Error al cargar ${url}: ${response.statusText}`);
-        const event = new Event('insertFileUpdated');
-        document.dispatchEvent(event); 
-        return response.text();
-      })
-      .then(fileContent => {
-        const content = extractContent(fileContent, insertFile);
-        if (!content) return;
-
-        const placeholders = document.querySelectorAll(selector);
-        const replacements = Math.min(maxReplacements, placeholders.length);
-
-        if (placeholders.length < maxReplacements) {
-          console.warn(`[${url}] Elementos encontrados: ${placeholders.length}/${maxReplacements}`);
-        }
-
-        Array.from(placeholders).slice(0, maxReplacements).forEach(placeholder => {
-          const temp = document.createElement('div');
-          temp.innerHTML = content;
-          placeholder.replaceWith(...temp.childNodes);
-        });
-      })
-      .catch(error => console.error("ERROR:", error));
-  }
-  function insertRandomFile(url, selector, maxReplacements = 1) {
-    maxReplacements = Math.max(0, Math.min(maxReplacements, 64));  // Límite de 64
-    if (maxReplacements === 0) return;
-
-    fetch(url)
-        .then(response => {
-            if (!response.ok) throw new Error(`Error al cargar ${url}`);
-            return response.text();
-        })
-        .then(fileContent => {
-            const allContents = extractAllContents(fileContent, "insertRandomFile");
-            if (allContents.length === 0) return;
-
-            const placeholders = document.querySelectorAll(selector);
-            const replacements = Math.min(maxReplacements, placeholders.length);
-
-            if (placeholders.length < maxReplacements) {
-                console.warn(`[${url}] Elementos encontrados: ${placeholders.length}/${maxReplacements}`);
-            }
-
-            // Registro de contenidos ya utilizados
-            const usedContents = new Set();
-
-            Array.from(placeholders).slice(0, maxReplacements).forEach(placeholder => {
-                let availableContents = allContents.filter(content => !usedContents.has(content));
-
-                if (availableContents.length === 0) {
-                  const temp = document.createElement('div');
-                  temp.innerHTML = "<!--  -->";
-                  placeholder.replaceWith(...temp.childNodes);
-                }
-
-                const randomContent = availableContents[Math.floor(Math.random() * availableContents.length)];
-                usedContents.add(randomContent); // Marcar como usado
-
-                const temp = document.createElement('div');
-                temp.innerHTML = randomContent;
-                placeholder.replaceWith(...temp.childNodes);
-            });
-        })
-        .catch(error => console.error("ERROR:", error));
-}
-
-  // Header
-  insertFile('/hdl/header.hdl', '[data-h-hdl]');
-  // Pre-Footer Blog
-  insertFile('/hdl/pre-footer-blog.hdl', '[data-pre-f-blog-hdl]');
-  insertRandomFile('/hdl/pre-footer-blog.hdl', '[data-carta-blog-hdl]', 3);
-  // Pre-Footer Recommendations
-  insertFile('/hdl/pre-footer-recommendations.hdl', '[data-pre-f-recommendations-hdl]');
-  insertRandomFile('/hdl/pre-footer-recommendations.hdl', '[data-carta-recommendations-hdl]', 3);
-  // Pre-Footer Standar
-  insertFile('/hdl/pre-footer.hdl', '[data-pre-f-hdl]');
-  insertRandomFile('/hdl/pre-footer.hdl', '[data-carta-hdl]', 3);
-  // Footer
-  insertFile('/hdl/footer.hdl', '[data-f-hdl]');
+document.addEventListener('DOMContentLoaded', function () {
   
-  // Pone el texto del cumpleaños de Notch
-  if (currentDate > startDateHappyBirthdayNotch && currentDate < endDateHappyBirthdayNotch) {
-    const subtitleElement = document.getElementById('id-subtitle-hero-h2');
-    if (subtitleElement) {
-      subtitleElement.textContent = messagesHappyBirthdayNotch[Math.floor(Math.random() * messagesHappyBirthdayNotch.length)]; // Subtitulo del hero
-      subtitleElement.style.color = "#ffff55" // Subtitulo del hero
-    } else {
-      console.error('IDが "id-subtitle-hero-h2" の要素がDOMに見つかりませんでした。');
+  Promise.all([
+    fetch('/components/sidebar.html').then(res => res.text()),
+    fetch('/components/icons_bar.html').then(res => res.text())
+  ])
+    .then(([sidebarHtml, iconsHtml]) => {
+      document.getElementById('sidebar').innerHTML = sidebarHtml;
+      document.getElementById('icons-bar').innerHTML = iconsHtml;
+      code();
+    })
+    .catch(error => console.error('Error al cargar componentes:', error));
+  
+  function code() {
+    // Control del menú móvil
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+
+    // sidebar.classList.toggle('active');
+    updateMenuToggleSVG();
+
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      sidebar.classList.toggle('active');
+      updateMenuToggleSVG();
+    });
+
+    updateMenuToggleSVG();
+
+    function updateMenuToggleSVG() {
+      menuToggle.innerHTML = sidebar.classList.contains('active') 
+        ? '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list-nested" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5m-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"/></svg>' 
+        : '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/></svg>';
     }
-  }
-  // Pone el texto de mi cumpleaños
-  if (currentDate > startDateHappyBirthdayDlemo_kun && currentDate < endDateHappyBirthdayDlemo_kun) {
-    const subtitleElement = document.getElementById('id-subtitle-hero-h2');
-    if (subtitleElement) {
-      subtitleElement.textContent = messagesHappyBirthdayDlemo_kun[Math.floor(Math.random() * messagesHappyBirthdayDlemo_kun.length)]; // Subtitulo del hero
-      subtitleElement.style.color = "var(--color-3)" // Subtitulo del hero
-    } else {
-      console.error('IDが "id-subtitle-hero-h2" の要素がDOMに見つかりませんでした。');
+    
+    // Cerrar menú al hacer click fuera
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768 && !sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+        sidebar.classList.remove('active');
+        updateMenuToggleSVG();
+      }
+    });
+
+    // Tema
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme') || 'auto';
+
+    function applyTheme(theme) {
+      document.body.classList.remove('theme-light', 'theme-dark', 'theme-classic');
+      themeToggle.dataset.themeMode = theme;
+      
+      if (theme === 'light') document.body.classList.add('theme-light');
+      if (theme === 'dark') document.body.classList.add('theme-dark');
+      if (theme === 'classic') document.body.classList.add('theme-classic');
+      
+      themeToggle.innerHTML = {
+        'auto': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"/></svg>',
+        'light': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-brightness-high-fill" viewBox="0 0 16 16"><path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/></svg>',
+        'dark': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/></svg>',
+        'classic': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-brightness-alt-high-fill" viewBox="0 0 16 16"><path d="M8 3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 3m8 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5m-13.5.5a.5.5 0 0 0 0-1h-2a.5.5 0 0 0 0 1zm11.157-6.157a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m-9.9 2.121a.5.5 0 0 0 .707-.707L3.05 5.343a.5.5 0 1 0-.707.707zM8 7a4 4 0 0 0-4 4 .5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5 4 4 0 0 0-4-4"/></svg>'
+      }[theme];
+
+      themeToggle.title = {
+        'auto': 'Modo automático',
+        'light': 'Modo claro',
+        'dark': 'Modo oscuro',
+        'classic': 'Modo clásico'
+      }[theme];
     }
-  }
-  // Pone los colores y texto de navidad
-  if (currentDate > startDateMerryChristmas && currentDate < endDateMerryChristmas) {
-    document.documentElement.style.setProperty('--color-1', '#554d4d'); // Rojo apagado
-    document.documentElement.style.setProperty('--color-2', '#d6c5c5'); // Blanco rosado
-    document.documentElement.style.setProperty('--color-3', '#c0392b'); // Rojo oscuro
-    const subtitleElement = document.getElementById('id-subtitle-hero-h2');
-    if (subtitleElement) {
-      subtitleElement.textContent = messagesMerryChristmas[Math.floor(Math.random() * messagesMerryChristmas.length)]; // Subtitulo del hero
-    } else {
-      console.error('IDが "id-subtitle-hero-h2" の要素がDOMに見つかりませんでした。');
-    }
+
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const themes = ['auto', 'light', 'dark', 'classic'];
+      const currentIndex = themes.indexOf(themeToggle.dataset.themeMode);
+      const nextTheme = themes[(currentIndex + 1) % 4];
+      
+      localStorage.setItem('theme', nextTheme);
+      applyTheme(nextTheme);
+    });
   }
 });

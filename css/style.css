@@ -1,21 +1,64 @@
+/* Tema automatico */
 :root {
-    /* --color-1: #dcdfe2;
-    --color-2: #4d5155; */
-    --color-1: #4d5155;
-    --color-2: #dcdfe2;
-    --color-3: #ec9b03;
-    --color-4: #09c009;
-    --color-5: #ec0303;
-    --open-shop-1: flex;
-    --open-shop-2: flex;
+    --color-main: #f8f9fa;
+    --color-section: #dcdfe2;
+    --color-section-box-shadow: transparent;
+    --color-font: #16202b;
+    --color-menu-bar: #34495e;
+    --color-menu-bar-font: #dcdfe2;
+    --color-menu-bar-border: #476079;
+    --color-menu-bar-hover: #476079;
+    --color-menu-bar-box-shadow: #00000066;
 }
-
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     :root {
-        --color-1: #4d5155;
-        --color-2: #dcdfe2;
+        --color-main: #242434;
+        --color-section: #141424;
+        --color-section-box-shadow: #00000066;
+        --color-font: #adadbd;
+        --color-menu-bar: #141424;
+        --color-menu-bar-font: #adadbd;
+        --color-menu-bar-border: #242434;
+        --color-menu-bar-hover: #242434;
+        --color-menu-bar-box-shadow: #00000066;
     }
-} */
+}
+/* Tema claro */
+body.theme-light {
+    --color-main: #f8f9fa;
+    --color-section: #dcdfe2;
+    --color-section-box-shadow: transparent;
+    --color-font: #16202b;
+    --color-menu-bar: #34495e;
+    --color-menu-bar-font: #dcdfe2;
+    --color-menu-bar-border: #476079;
+    --color-menu-bar-hover: #476079;
+    --color-menu-bar-box-shadow: #00000066;
+}
+/* Tema oscuro */
+body.theme-dark {
+    --color-main: #242434;
+    --color-section: #141424;
+    --color-section-box-shadow: #00000066;
+    --color-font: #adadbd;
+    --color-menu-bar: #141424;
+    --color-menu-bar-font: #adadbd;
+    --color-menu-bar-border: #242434;
+    --color-menu-bar-hover: #242434;
+    --color-menu-bar-box-shadow: #00000066;
+}
+/* Tema clásico */ /* #ec9b03 */
+body.theme-classic {
+    --color-main: #dcdfe2;
+    --color-section: #4d515577;
+    --color-section-box-shadow: #00000066;
+    --color-font: #4d5155;
+    --color-menu-bar: #4d5155;
+    --color-menu-bar-font: #dcdfe2;
+    --color-menu-bar-border: #dcdfe2;
+    --color-menu-bar-hover: #dcdfe277;
+    --color-menu-bar-box-shadow: #00000066;
+}
 
 * {
     box-sizing: border-box;
@@ -23,546 +66,256 @@
     padding: 0;
     border: 0;
     border-radius: 0;
+    overflow: visible;
+    text-overflow: ellipsis;
     font-family: 'Roboto', sans-serif;
     
-    transition: scale .05s ease-in 0s, color .05s ease-in 0s, background-color .05s ease-in 0s;
+    transition: scale .05s ease-in 0s, color .2s ease-in 0s, background-color .2s ease-in 0s;
 }
 
-html {scroll-behavior: smooth}
+html {
+    background: #000;
 
-h1 {font-size: 2.8em;}
-h2 {font-size: 1.8em;}
-#id-subtitle-hero-h2, h3 {font-size: 1.4em;}
-a, p {font-size: 1em;text-decoration: none;}
-p a {font-size: 1em;}
+    /* * * * * * * * * * * * * * * * * * * * * */
+    scroll-behavior: smooth;
 
-a:hover {
-    scale: 1.15;
-    color: var(--color-3);
-}
-
-ul {list-style: none;}
-.ul-list {
-    list-style: none;
-    align-items: center;
-    justify-content: left;
-    text-align: left;
-}
-.ul-list-center {
-    list-style: none;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-form {
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-button, input{
-    font-size: 1em;
-    font-weight: bold;
-    padding: 5px 20px;
-    border-radius: 999999px;
-    background-color: var(--color-3);
-    color: var(--color-2);
-    &:hover {
-        scale: 1.1;
-        background-color: var(--color-1);
-        color: var(--color-2);
-    }
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 8px;
-    text-align: center;
-}
-
-.span-hashtags {
-    display: inline-block; /* Para que se comporte como un botón */
-    font-size: 1em;
-    font-weight: bold;
-    padding: 5px 20px;
-    border-radius: 999999px; /* Bordes redondeados como tus botones */
-    background-color: var(--color-4); /* Color de fondo del botón */
-    color: var(--color-2); /* Color del texto */
-}
-
-body {
-    background-color: var(--color-2);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Encabesado */
-header {
-    position: fixed;
-    width: 100vw;
-    background-color: var(--color-2);
-    color: var(--color-1);
-    border-bottom: 1px solid var(--color-1);
-}
-.class-header-logo-h3 {
-    color: var(--color-3);
-}
-
-.class-header-div nav {
-    padding: 16px 16px;
-    /* display: flex; */
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-nav ul li a {
-    color: var(--color-1);
-}
-nav ul li a:hover {
-    color: var(--color-3);
-}
-
-
-/* Cuerpo prinsipal */
-main {
-    flex: 1;
-    background-color: var(--color-1);
-    color: var(--color-2);
-}
-
-.class-hero-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 80vh;
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-    )
-    ,url("/assets/webp/hero-ja.webp");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-.class-hero-div {
-    max-width: 1400px;
-    height: auto;
-    margin: auto;
-    padding: 10px;
-}
-.class-logo-hero-img {
-    background-color: var(--color-1);
-    width: 275px;
-    height: 275px;
-    margin: auto;
-    margin-bottom: 20px;
-    border-radius: 999999px;
-}
-/* ############################################# */
-.class-article-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-    h1 {
-        text-align: center;
-        font-size: 4.4em;
-    }
-    h2, h3 {
-        text-align: center;
-    }    
-    a:hover {
-        color: var(--color-3);
-    }
-}
-.class-style-black {
-    background-color: var(--color-1);
-    color: var(--color-2);
-    th, td {
-        border: 1px solid var(--color-2);
-    }
-    .class-select-td {
-        background-color: var(--color-2);
-        color: var(--color-1);
-    }
-    a {
-        text-decoration: underline;
-        color: var(--color-2);
-    }
-}
-.class-style-white {
-    background-color: var(--color-2);
-    color: var(--color-1);
-    button:hover, input:hover {
-        background-color: var(--color-1);
-        color: var(--color-2);
-    }
-    th, td {
-        border: 1px solid var(--color-1);
-    }
-    .class-select-td {
-        /* background-color: var(--color-3); */
-        background-color: var(--color-1);
-        color: var(--color-2);
-    }
-    a {
-        text-decoration: underline;
-        color: var(--color-1);
-    }
-}
-.class-article-div {
-    width: 100%;
-    max-width: 1400px;
-    margin: auto;
-    padding: 160px 10px;
-}
-/* ############################################# */
-.class-pre-footer-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-.class-pre-footer-div {
-    max-width: 1400px;
-    margin: auto;
-    padding: 80px 10px;
-}
-.class-pre-footer-carta-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 20px 10px;
-    padding: 20px 10px;
-    background-color: var(--color-2);
-    color: var(--color-1);
-    border-radius: 25px;
-}
-.class-pre-footer-carta-div h3 {
-    padding-bottom: 20px;
-}
-.class-pre-footer-carta-div p {
-    padding: 20px 10px;
-    display: none;
-}
-
-.class-pre-footer-carta-div img {
-    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
-    height: auto;
-    border-radius: 15px; /* Agrega bordes redondeados para mantener consistencia con el diseño */
-    margin-bottom: 20px; /* Espacio entre la imagen y el contenido inferior */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra sutil para resaltar la imagen */
-}
-
-/* Pie de pagina */
-footer {
-    background-color: var(--color-2);
-    color: var(--color-1);
-    border-top: 1px solid var(--color-1);
-}
-.class-footer-div {
-    max-width: 1400px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-}
-.class-footer-div nav {
-    padding: 16px 16px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Estilos generales */
-.class-header-div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    background-color: var(--color-2);
-    color: var(--color-1);
-}
-
-.class-menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-    display: block;
-}
-
-#id-menu-toggle {
-    display: none;
-}
-
-.class-menu {
-    display: flex;
-    justify-content: flex-end;
-}
-
-header div a {color: var(--color-1); &:hover {color: var(--color-3);}}
-
-.class-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.class-menu ul li {
-    margin-left: 20px;
-}
-
-.class-menu ul li a {
-    color: var(--color-1);
-    text-decoration: none;
-}
-
-
-.class-menu {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 10px;
-    background-color: var(--color-1);
-    flex-direction: column;
-    width: 100%;
-    max-width: 190px;
-    border-radius: 25px;
-    border: 1px solid var(--color-2);
-}
-
-.class-menu ul {
-    flex-direction: column;
-}
-
-.class-menu ul li {
-    margin: 10px 0;
-}
-
-.class-menu ul li a {
-    color: var(--color-2);
-    &:hover {
-        scale: 1.15;
-        color: var(--color-3);
-    }
-}
-
-#id-menu-toggle:checked ~ .class-menu {
-    display: flex;
-}
-
-
-
-@media (max-height: 500px) {
-    .class-logo-hero-img  {
+    /* * * * * * * * * * * * * * * * * * * * * */
+    /* Esto es para que se quite el scroll bar */
+    /* sinembargo el unico que veo que hace    */
+    /* efecto es "scrollbar-width: none;" lo   */
+    /* demas no veo que aga nada.              */
+    /* * * * * * * * * * * * * * * * * * * * * */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    &::-webkit-scrollbar {
         display: none;
+        width: 0 !important;
     }
+    /* * * * * * * * * * * * * * * * * * * * * */
 }
-@media (max-width: 1100px) {
-    .ul-list p::before {
-        content: "  - ";
-    }
+
+@media (max-width: 768px) {
     .hide-mobile {
         display: none;
         position: absolute;
         top: -3.14em;
     }
 }
-@media (min-width: 1100px) {
-    #id-subtitle-hero-h2 {font-size: 1.8em}
-    
-    .class-menu-icon {
-        padding: 16px;
-        scale: 1.5;
-    }
+@media (min-width: 768px) {
     .hide-desktop {
         display: none;
         position: absolute;
         top: -3.14em;
     }
-    .ul-list {
-        list-style: disc;
-        align-items: center;
-        justify-content: left;
-        text-align: left;
-    }
-    .ul-list-center {
-        list-style: disc;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
+}
 
-    button:hover, input:hover {
-        background-color: var(--color-2);
-        color: var(--color-1);
-    }    
+body {
+    display: flex;
+    min-height: 100vh;
+}
 
-    header {
-        top: 0;
-        z-index: 1000;
-        height: 65px;
-    }
-    .class-header-div {
-        height: 64px;
-        position: absolute;
-        left: 0;
-        right: 0;
-        width: 100vw;
-        max-width: 1400px;
-        margin: auto;
-        display: flex;
-        padding: 0 20px;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .class-header-div nav {
-        flex-direction: row;
-        justify-content: right;
-    }
-    .class-header-div nav a {
-        padding: 0 10px;
-    }
-    .class-menu {
-        /* position: relative; */
-        right: 64px;
-    }
-    main {
-        flex: 1;
-        overflow-y: auto;
-    }
+h1, h2, h3, h4, h5, h6, p, a, svg, img {
+    background: transparent;
+}
 
-    .class-article-div {
-        width: auto;
-        max-width: 1400px;
-        margin: auto;
-    }
+/* Menú lateral */
+.sidebar {
+    background: var(--color-menu-bar);
+    width: 250px;
+    transition: 0.3s;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    box-shadow: 0 0 30px var(--color-menu-bar-box-shadow);
 
-    footer {
-        position: fixed;
+    /* * * * * * * * * * * * * * * * * * * * * */
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+    /* * * * * * * * * * * * * * * * * * * * * */
+    /* Esto es para que se quite el scroll bar */
+    /* sinembargo el unico que veo que hace    */
+    /* efecto es "scrollbar-width: none;" lo   */
+    /* demas no veo que aga nada.              */
+    /* * * * * * * * * * * * * * * * * * * * * */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    &::-webkit-scrollbar {
+        display: none;
+        width: 0 !important;
+    }
+    /* * * * * * * * * * * * * * * * * * * * * */
+
+    .text-item {
+        background: var(--color-menu-bar);
+        color: var(--color-menu-bar-font);
+        padding: 30px 15px 15px 15px;
+        text-decoration: none;
+        display: block;
+        border-bottom: 1px solid var(--color-menu-bar-border);
+        &:first-of-type {
+            padding: 15px;
+        }
+    }
+    .nav-item {
+        background: var(--color-menu-bar);
+        color: var(--color-menu-bar-font);
+        padding: 15px;
+        text-decoration: none;
+        display: block;
+        border-bottom: 1px solid var(--color-menu-bar-border);
+        &:hover {
+            background-color: var(--color-menu-bar-hover);
+        }
+    }
+    .bottom-item {
+        position: sticky;
         bottom: 0;
-        z-index: 1000;
-        width: 100vw;
-    }
-
-    .class-footer-div {
-        padding: 0 20px;
-    }
-    .class-footer-div nav {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .class-footer-div li {
-        display: inline;
-    }
-    .class-footer-div nav a {
-        padding: 0 10px;
-    }
-    .class-header-logo-h3 {
-        padding: 16px;
+        width: 250px;
+        display: block;
+        border-top: 1px solid var(--color-menu-bar-border);
+        box-shadow: 0 0 30px var(--color-menu-bar-box-shadow);
     }
 }
-@media (min-width: 720px) {
-    .class-pre-footer-cartas-div {
-        /* display: flex; */
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1rem;
 
+/* Contenido principal */
+main{
+    flex: 1;
+    margin-left: 250px;
+    margin-right: 60px;
+    padding: 20px;
+    overflow: auto;
+    background-color: var(--color-main);
+    color: var(--color-font);
+    h1, p {
+        margin-bottom: 10px;
     }
-    .class-pre-footer-carta-div {
+}
+
+/* Barra de iconos derecha */
+.icons-bar {
+    nav {
+        position: fixed;
+        width: 60px;
+        background: var(--color-menu-bar);
+        right: 0;
+        top: 0;
+        bottom: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 20px 0;
+        gap: 20px;
+        box-shadow: 0 0 30px var(--color-menu-bar-box-shadow);
+    }
+}
+
+/* Secciones sin scroll */
+.scroll-section {
+    background: var(--color-section);
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 5px;
+    min-height: 200px;
+    box-shadow: 0 0 15px var(--color-section-box-shadow);
+    img {
+        margin-right: 10px;
+        margin-bottom: 6px;
+    }
+    .post-img-div {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+        gap: 1.8rem;
+        /* margin: 2.5rem 0; */
         justify-content: center;
+    }
+    .post-img-container {
+        display: inline-block;
+        max-width: 100%;
+        overflow: hidden;
+        margin: 10px 0;
+        p {
+            margin-top: 10px;
+            font-size: 1.17em;
+            font-weight: bold;
+        }
+    }
+    .post-img {
+        max-height: 70vh;       /* Altura máxima */
+        max-width: 100%;        /* Ancho máximo */
+        height: auto;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;    /* Mantiene proporciones */
+        transition: transform 0.3s ease;
+    }
+    h2, p {
+        margin-bottom: 10px;
+    }
+    ul {
+        margin-left: 20px;
+    }
+    form {
         text-align: center;
-        margin: 20px 10px;
-        margin: auto;
-        padding: 20px 10px;
-        background-color: var(--color-1);
-        color: var(--color-2);
-        border-radius: 25px;
-    }
-    .class-pre-footer-carta-div h3 {
-        border-radius: 25px;
-        padding: 5px;
-        padding-bottom: 5px;
-    }
-    .class-pre-footer-carta-div p {
-        display: flex;
-    }
-    .class-carta-div img {
-        max-height: 320px;
     }
 }
 
-/* ############### */
-.tag0002 {padding: 122px 10px 40px 10px;}
-.tag0002 input {width: 100%;}
-@media (min-width: 1100px) {
-    .tag0002 {padding: 120px 10px 60px 10px;}
-}
-/* ############### */
-
-/* ############### */
-.class-open-1-section {
-    display: var(--open-shop-1);
-}
-.class-open-2-section {
-    display: var(--open-shop-2);
+.download-button {
+    background-color: var(--color-menu-bar);
+    color: var(--color-menu-bar-font);
+    margin: 20px 0;
+    padding: 20px 40px;
+    font-size: 20px;
+    border-radius: 99999px;
+    border: 3px solid var(--color-menu-bar-border);
+    &:hover {
+        background-color: var(--color-menu-bar-hover);
+    }
 }
 
-.class-div {
-    max-width: 1400px;
-    margin: auto;
-    padding: 80px 10px;
+/* Botón de menú dentro de la barra de iconos */
+.button-icons-bar {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--color-menu-bar-font);
+    cursor: pointer;
+    font-size: 1.5rem;
 }
 
+/* Estilos para móvil */
+@media (max-width: 768px) {
+    .sidebar {
+        left: -250px;
+    }
 
-.class-cartas-div {
-    /* display: flex; */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
+    .sidebar.active {
+        left: 0;
+    }
 
-}
-.class-carta-div {
-    /* width: 30%; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 20px 10px;
-    margin: auto;
-    padding: 20px 10px;
-    border-radius: 25px;
-}
+    /* .scroll-section {
+        .post-img-div {
+            text-align: center;
+        }
+        .post-img {
+            height: auto;
+            width: 100%;
+        }
+    } */
 
-.class-carta-div h3 {
-    border-radius: 25px;
-    padding: 5px;
-    padding-bottom: 5px;
-}
-.class-carta-div p {
-    padding: 20px 10px;
-    display: flex;
+    main {
+        margin-left: 0;
+        margin-right: 60px;
+    }
 }
 
-.class-carta-div img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.icon {
+    color: var(--color-menu-bar-font);
+    font-size: 1.5rem;
 }
-/* ############### */
+
