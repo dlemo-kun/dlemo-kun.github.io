@@ -1,6 +1,6 @@
 # **dlemo-kun**
 
-**Versión = 2.0.3**
+**Versión = 2.0.4**
 
 ¡Bienvenido al repositorio oficial de mi sitio web personal! 
 

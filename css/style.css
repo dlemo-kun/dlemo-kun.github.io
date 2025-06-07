@@ -55,7 +55,7 @@ body.theme-classic {
     --color-font: #4d5155;
     --color-menu-bar: #4d5155;
     --color-menu-bar-font: #dcdfe2;
-    --color-menu-bar-border: #dcdfe2;
+    --color-menu-bar-border: #dcdfe248;
     --color-menu-bar-hover: #dcdfe277;
     --color-menu-bar-box-shadow: #00000066;
 }
@@ -211,6 +211,15 @@ main{
         padding: 20px 0;
         gap: 20px;
         box-shadow: 0 0 30px var(--color-menu-bar-box-shadow);
+        /* Botón de menú dentro de la barra de iconos */
+        .button-icons-bar {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--color-menu-bar-font);
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
     }
 }
 
@@ -278,16 +287,6 @@ main{
     }
 }
 
-/* Botón de menú dentro de la barra de iconos */
-.button-icons-bar {
-    display: block;
-    background: none;
-    border: none;
-    color: var(--color-menu-bar-font);
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
 /* Estilos para móvil */
 @media (max-width: 768px) {
     .sidebar {
@@ -298,19 +297,20 @@ main{
         left: 0;
     }
 
-    /* .scroll-section {
-        .post-img-div {
-            text-align: center;
+    .icons-bar {
+        nav {
+            width: 35px;
+            svg {
+                scale: 75%;
+
+            }
         }
-        .post-img {
-            height: auto;
-            width: 100%;
-        }
-    } */
+    }
+
 
     main {
         margin-left: 0;
-        margin-right: 60px;
+        margin-right: 35px;
     }
 }
 
