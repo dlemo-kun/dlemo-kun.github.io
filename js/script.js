@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
   
   Promise.all([
-    fetch('/components/sidebar.html').then(res => res.text()),
+    fetch('/components/side_bar.html').then(res => res.text()),
     fetch('/components/icons_bar.html').then(res => res.text())
   ])
     .then(([sidebarHtml, iconsHtml]) => {
-      document.getElementById('sidebar').innerHTML = sidebarHtml;
+      document.getElementById('side-bar').innerHTML = sidebarHtml;
       document.getElementById('icons-bar').innerHTML = iconsHtml;
       code();
     })
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function code() {
     // Control del menú móvil
     const menuToggle = document.getElementById('menuToggle');
-    const sidebar = document.getElementById('sidebar');
+    const sidebar = document.getElementById('side-bar');
 
     // sidebar.classList.toggle('active');
     updateMenuToggleSVG();
@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateMenuToggleSVG();
 
+    /////////////////////////////////////////////
+    // Estos son los svgs de el boton del menu //
+    /////////////////////////////////////////////
     function updateMenuToggleSVG() {
       menuToggle.innerHTML = sidebar.classList.contains('active') 
         ? '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list-nested" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5m-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"/></svg>' 
@@ -52,7 +55,10 @@ document.addEventListener('DOMContentLoaded', function () {
       if (theme === 'light') document.body.classList.add('theme-light');
       if (theme === 'dark') document.body.classList.add('theme-dark');
       if (theme === 'classic') document.body.classList.add('theme-classic');
-      
+
+      /////////////////////////////////////////////
+      // Estos son los svgs de el boton de tema  //
+      /////////////////////////////////////////////
       themeToggle.innerHTML = {
         'auto': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"/></svg>',
         'light': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-brightness-high-fill" viewBox="0 0 16 16"><path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/></svg>',

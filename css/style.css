@@ -47,17 +47,17 @@ body.theme-dark {
     --color-menu-bar-hover: #242434;
     --color-menu-bar-box-shadow: #00000066;
 }
-/* Tema clásico */ /* #ec9b03 */
+/* Tema clásico */
 body.theme-classic {
-    --color-main: #dcdfe2;
-    --color-section: #4d515577;
-    --color-section-box-shadow: #00000066;
-    --color-font: #4d5155;
-    --color-menu-bar: #4d5155;
-    --color-menu-bar-font: #dcdfe2;
-    --color-menu-bar-border: #dcdfe248;
-    --color-menu-bar-hover: #dcdfe277;
-    --color-menu-bar-box-shadow: #00000066;
+    --color-main: #f8f9fa;
+    --color-section: #e9ecef;
+    --color-section-box-shadow: #6c757d14;
+    --color-font: #212529;
+    --color-menu-bar: #495057;
+    --color-menu-bar-font: #f8f9fa;
+    --color-menu-bar-border: #6c757d;
+    --color-menu-bar-hover: #6c757d;
+    --color-menu-bar-box-shadow: #2125291a;
 }
 
 * {
@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5, h6, p, a, svg, img {
 }
 
 /* Menú lateral */
-.sidebar {
+.side-bar {
     background: var(--color-menu-bar);
     width: 250px;
     transition: 0.3s;
@@ -191,8 +191,11 @@ main{
     overflow: auto;
     background-color: var(--color-main);
     color: var(--color-font);
-    h1, p {
+    h1, h2, h3, h4, h5, h6, p, a, svg, img {
         margin-bottom: 10px;
+    }
+    h3 {
+        margin-top: 30px;
     }
 }
 
@@ -272,6 +275,11 @@ main{
     form {
         text-align: center;
     }
+    .link-button-a {
+        display: block;
+        text-align: start;
+        text-decoration: none;
+    }
 }
 
 .download-button {
@@ -282,6 +290,20 @@ main{
     font-size: 20px;
     border-radius: 99999px;
     border: 3px solid var(--color-menu-bar-border);
+    cursor: pointer;
+    &:hover {
+        background-color: var(--color-menu-bar-hover);
+    }
+}
+.link-button {
+    background-color: var(--color-menu-bar);
+    color: var(--color-menu-bar-font);
+    margin: 5px 0;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 99999px;
+    border: 2px solid var(--color-menu-bar-border);
+    cursor: pointer;
     &:hover {
         background-color: var(--color-menu-bar-hover);
     }
@@ -289,11 +311,11 @@ main{
 
 /* Estilos para móvil */
 @media (max-width: 768px) {
-    .sidebar {
+    .side-bar {
         left: -250px;
     }
 
-    .sidebar.active {
+    .side-bar.active {
         left: 0;
     }
 
@@ -306,7 +328,6 @@ main{
             }
         }
     }
-
 
     main {
         margin-left: 0;
