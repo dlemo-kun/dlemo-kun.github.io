@@ -62,4 +62,4 @@ def generar_sitemap(archivos):
 if __name__ == "__main__":
     archivos_html = listar_archivos_html(directorio_raiz)
     generar_sitemap(archivos_html)
-    print(f"Sitemap generado en {output_file}")
+    print(f"sitemap generado en ./{output_file}")
