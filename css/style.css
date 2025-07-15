@@ -269,8 +269,14 @@ main{
     h2, p {
         margin-bottom: 10px;
     }
-    ul {
+    .tab {
+        padding-left: 20px;
+    }
+    ul, ol {
         margin-left: 20px;
+        li {
+            margin-bottom: 10px;
+        }
     }
     form {
         text-align: center;
@@ -279,6 +285,9 @@ main{
         display: block;
         text-align: start;
         text-decoration: none;
+    }
+    a {
+        color: var(--color-font);
     }
 }
 
@@ -307,6 +316,33 @@ main{
     &:hover {
         background-color: var(--color-menu-bar-hover);
     }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 40px;
+    /* table-layout: fixed;
+    overflow: hidden;
+    word-wrap: break-word; */
+}
+th, td {
+    border: 1px solid var(--color-menu-bar-border);
+    padding: 10px;
+    text-align: left;
+}
+th {
+    color: var(--color-menu-bar-font);
+    background-color: var(--color-menu-bar-hover);
+    font-weight: bold;
+}
+.monospace {
+    font-family: monospace;
+    font-size: 1em;
+}
+
+.table-overflow-x {
+    overflow-x: auto;
 }
 
 /* Estilos para móvil */

@@ -1,0 +1,9 @@
+python ./blog/map.py
+python ./download/applications/map.py
+python ./download/audios/map.py
+python ./download/documents/map.py
+python ./download/photos/map.py
+python ./download/videos/map.py
+python ./download/map.py
+python ./search/map.py
+python ./sitemap.py
